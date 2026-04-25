@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+  ✏️ CHANGE YOUR BROWSER TAB TITLE HERE
+============================================================ -->
+<title>Yujasva — Corporate & Online Yoga · Pune</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+
+  /* ============================================================
+    ✏️ YOUR BRAND COLOURS — change these to change the whole site
+    --cream        = page background (light beige)
+    --green        = main dark green (buttons, nav, footer)
+    --green-m      = slightly lighter green (hover effects)
+    --green-l      = very light green (card backgrounds)
+    --gold         = accent gold (not heavily used yet)
+  ============================================================ */
+  --cream:#f4efe6;
+  --cream-d:#ede7dc;
+  --green:#2a4a1f;
+  --green-m:#3d6b30;
+  --green-l:#e8efe4;
+  --gold:#b8956a;
+  --txt:#2c2c2c;
+  --txt-l:#777;
+  --white:#fff;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--txt);overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Playfair Display',serif}
+em{font-family:'Playfair Display',serif;font-style:italic;color:var(--green-m)}
+a{text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:var(--cream);border-bottom:1px solid rgba(42,74,31,.1);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--green);font-weight:500}
+.nav-links{display:flex;align-items:center;gap:2.2rem}
+.nav-links a{color:var(--txt);font-size:.78rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--green)}
+.btn-p{background:var(--green);color:var(--white)!important;padding:.65rem 1.4rem;border-radius:3px;font-size:.75rem!important;font-weight:600!important;letter-spacing:.08em;transition:background .2s}
+.btn-p:hover{background:var(--green-m)!important}
+.btn-o{border:1.5px solid var(--green);color:var(--green);padding:.65rem 1.4rem;border-radius:3px;font-size:.78rem;font-weight:600;letter-spacing:.08em;transition:all .2s;display:inline-block}
+.btn-o:hover{background:var(--green);color:var(--white)}
+
+/* HERO */
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:72px}
+.hero-l{display:flex;flex-direction:column;justify-content:center;padding:5rem 3rem 5rem 4rem}
+.eyebrow{display:flex;align-items:center;gap:.75rem;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--txt-l);margin-bottom:1.5rem}
+.eyebrow::before{content:'';display:block;width:2rem;height:1px;background:var(--txt-l)}
+.hero-l h1{font-size:3.7rem;line-height:1.15;font-weight:400;margin-bottom:1.4rem}
+.hero-l>p{font-size:.95rem;line-height:1.75;color:var(--txt-l);max-width:470px;margin-bottom:2.2rem}
+.hero-btns{display:flex;gap:1rem;margin-bottom:3rem}
+.hdiv{width:100%;height:1px;background:rgba(42,74,31,.15);margin-bottom:1.8rem}
+.stats{display:flex;gap:3rem}
+.sn{display:block;font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:400}
+.sl{display:block;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-l);margin-top:.2rem}
+.hero-r{background:var(--green-l);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-r::before{content:'';position:absolute;inset:0;background:var(--cream);border-radius:0;transition:clip-path 1.2s cubic-bezier(.77,0,.18,1);clip-path:circle(100% at 50% 50%)}
+.hero-r.revealed::before{clip-path:circle(0% at 50% 50%)}
+.yoga-svg{width:260px;height:260px;opacity:.65;animation:float 4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.badge{position:absolute;bottom:2rem;right:2rem;background:var(--white);border-radius:8px;padding:.7rem 1.1rem;display:flex;align-items:center;gap:.7rem;box-shadow:0 4px 20px rgba(0,0,0,.1);font-size:.82rem}
+.bdot{width:9px;height:9px;border-radius:50%;background:#4caf50;flex-shrink:0}
+.badge strong{display:block;font-weight:600;font-size:.82rem}
+.badge span{font-size:.72rem;color:var(--txt-l)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+
+/* ABOUT */
+#about{background:var(--cream-d);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;padding:6rem 4rem}
+.about-l h2{font-size:2.7rem;line-height:1.25;font-weight:400;margin-bottom:1.4rem}
+.about-l p{font-size:.92rem;line-height:1.8;color:var(--txt-l);margin-bottom:1rem}
+.about-l a{margin-top:1.5rem;display:inline-block}
+.mission{background:var(--green-l);border-left:3px solid var(--green);padding:2.5rem;border-radius:4px}
+.mlabel{font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-l);margin-bottom:.65rem}
+.mission h3{font-size:1.35rem;font-weight:400;margin-bottom:.85rem}
+.mission p{font-size:.88rem;line-height:1.7;color:var(--txt-l);margin-bottom:1.4rem}
+.chk{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.chk li{display:flex;align-items:center;gap:.55rem;font-size:.88rem}
+.chk li::before{content:'✓';color:var(--green-m);font-weight:600}
+
+/* TEAM */
+#team{padding:6rem 4rem;text-align:center}
+#team h2{font-size:2.7rem;font-weight:400;margin-bottom:.65rem}
+#team>p.sub{color:var(--txt-l);max-width:540px;margin:0 auto 3.5rem;line-height:1.7;font-size:.92rem}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:1100px;margin:0 auto;text-align:left}
+.tc{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.tc.vis{opacity:1;transform:translateY(0)}
+.tc-photo{width:100%;aspect-ratio:3/4;border-radius:6px;margin-bottom:1rem;overflow:hidden;background:var(--green-l);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--green);position:relative}
+.tc-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.tc-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;margin-bottom:.2rem}
+.tc-role{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-l);margin-bottom:.45rem}
+.tc-desc{font-size:.82rem;line-height:1.6;color:var(--txt-l)}
+@media (max-width:900px){
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  .team-grid{grid-template-columns:1fr;max-width:320px}
+}
+
+/* WHY */
+#why{background:var(--cream-d);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;padding:6rem 4rem}
+#why h2{font-size:2.7rem;font-weight:400;line-height:1.2;margin-bottom:2rem}
+.why-item{display:grid;grid-template-columns:3rem 1fr;gap:1rem;padding:1.4rem 0;border-bottom:1px solid rgba(42,74,31,.15)}
+.wn{font-family:'Playfair Display',serif;font-size:1rem;color:var(--txt-l);padding-top:.1rem}
+.why-item h4{font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;margin-bottom:.35rem}
+.why-item p{font-size:.83rem;line-height:1.65;color:var(--txt-l)}
+.qcard{background:var(--green);color:var(--white);padding:2.8rem;border-radius:6px;position:sticky;top:5.5rem}
+.qcard blockquote{font-family:'Playfair Display',serif;font-size:1.2rem;font-style:italic;line-height:1.65;margin-bottom:1.4rem}
+.qattr{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;opacity:.65;margin-bottom:1.4rem}
+.qchk{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.qchk li{display:flex;align-items:center;gap:.55rem;font-size:.88rem}
+.qchk li::before{content:'✓';font-weight:600}
+
+/* SERVICES */
+#services{padding:6rem 4rem;text-align:center}
+#services h2{font-size:2.5rem;font-weight:400;margin-bottom:.5rem}
+#services>.sub{color:var(--txt-l);font-size:.92rem;margin-bottom:3rem}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:left}
+.svc{background:var(--green-l);padding:2rem;border-radius:6px;border:1px solid rgba(42,74,31,.1);transition:transform .2s,box-shadow .2s}
+.svc:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(42,74,31,.1)}
+.svc-icon{font-size:2rem;margin-bottom:.9rem}
+.svc h3{font-size:1.05rem;font-weight:500;margin-bottom:.45rem}
+.svc p{font-size:.83rem;line-height:1.65;color:var(--txt-l)}
+
+/* EVENTS */
+#events{background:var(--cream-d);padding:6rem 4rem}
+#events h2{font-size:2.7rem;font-weight:400;margin-bottom:.5rem}
+#events>.sub{color:var(--txt-l);font-size:.92rem;margin-bottom:3rem}
+.ev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.ev{background:var(--cream);border-radius:8px;overflow:hidden;box-shadow:0 2px 15px rgba(0,0,0,.05);transition:transform .25s,box-shadow .25s}
+.ev:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.1)}
+.ev-img{width:100%;height:210px;object-fit:cover;display:block}
+.ev-body{padding:1.4rem}
+.ev-date{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-l);margin-bottom:.45rem}
+.ev h3{font-size:1rem;font-weight:500;margin-bottom:.45rem;line-height:1.4}
+.ev p{font-size:.82rem;line-height:1.65;color:var(--txt-l);margin-bottom:.8rem}
+.ev-tag{display:inline-block;font-size:.68rem;padding:.22rem .7rem;background:var(--green-l);color:var(--green);border-radius:20px;font-weight:500}
+
+/* CONTACT */
+#contact{display:grid;grid-template-columns:1fr 1.3fr;gap:5rem;align-items:start;padding:6rem 4rem}
+.con-l h2{font-size:2.7rem;font-weight:400;line-height:1.25;margin-bottom:1rem}
+.con-l p{font-size:.92rem;line-height:1.75;color:var(--txt-l);margin-bottom:2rem}
+.con-info{display:flex;flex-direction:column;gap:.7rem}
+.con-item{display:flex;align-items:center;gap:.7rem;font-size:.88rem}
+.con-item a{color:var(--green)}
+.cdot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:.35rem}
+.fg.full{grid-column:1/-1}
+label{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-l)}
+input,select,textarea{font-family:'Inter',sans-serif;font-size:.88rem;padding:.72rem 1rem;border:1px solid rgba(42,74,31,.2);border-radius:4px;background:var(--white);color:var(--txt);outline:none;transition:border-color .2s;width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--green)}
+textarea{height:125px;resize:vertical}
+.sub-btn{grid-column:1/-1;background:var(--green);color:var(--white);border:none;padding:.95rem;font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;cursor:pointer;transition:background .2s;margin-top:.4rem}
+.sub-btn:hover{background:var(--green-m)}
+.form-success{display:none;grid-column:1/-1;background:var(--green-l);border:1px solid var(--green);color:var(--green);padding:1rem;border-radius:4px;font-size:.88rem;text-align:center}
+
+/* FOOTER */
+footer{background:var(--green);color:var(--white);padding:2.2rem 4rem;display:flex;align-items:center;justify-content:space-between;font-size:.82rem}
+.f-logo{font-family:'Playfair Display',serif;font-size:1.2rem}
+footer a{color:rgba(255,255,255,.65);transition:color .2s}
+footer a:hover{color:var(--white)}
+.f-links{display:flex;gap:2rem}
+.seb{display:flex;align-items:center;gap:.75rem;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--txt-l);margin-bottom:1.4rem}
+.seb::before{content:'';display:block;width:2rem;height:1px;background:var(--txt-l)}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+  NAV BAR
+  ✏️ To rename a menu link, change the text between > and </a>
+  ✏️ To remove a link, delete the whole <a href="...">...</a> line
+  ✏️ To change the logo name, change "Yujasva" in the nav-logo line
+============================================================ -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Yujasva</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#team">Team</a>
+    <a href="#services">Services</a>
+    <a href="#events">Events</a>
+    <a href="#contact">Contact</a>
+    <!-- ✏️ Change "Book a Session" to whatever you want the button to say -->
+    <a href="#contact" class="btn-p">Book a Session</a>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+  HERO SECTION (the very first thing people see)
+============================================================ -->
+<section id="hero">
+  <div class="hero-l rv">
+
+    <!-- ✏️ Small text above the headline (all caps, subtle) -->
+    <p class="eyebrow">Corporate & Online Yoga · Pune</p>
+
+    <!-- ✏️ YOUR MAIN HEADLINE — the <em> tag makes words italic & green -->
+    <h1>Wellness that meets<br>you <em>where you are.</em></h1>
+
+    <!-- ✏️ The paragraph below the headline -->
+    <p>Yujasva brings expert-led yoga to your workplace and your screen. From corporate wellness programs to online batches, our team of 7 certified instructors is dedicated to making wellness accessible for everyone.</p>
+
+    <div class="hero-btns">
+      <!-- ✏️ Change button labels here -->
+      <a href="#contact" class="btn-p">Book a Session</a>
+      <a href="#services" class="btn-o">Our Services</a>
+    </div>
+
+    <div class="hdiv"></div>
+
+    <!-- ✏️ THE 3 STATS — change the number (sn) and label (sl) for each -->
+    <div class="stats">
+      <div>
+        <span class="sn">7</span>
+        <span class="sl">Expert Trainers</span>
+      </div>
+      <div>
+        <span class="sn">550+</span>
+        <span class="sl">Lives Touched</span>
+      </div>
+      <div>
+        <span class="sn">6+</span>
+        <span class="sl">Events Conducted</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Right side: yoga illustration + badge (design element, not usually edited) -->
+  <div class="hero-r" id="heroR">
+    <svg class="yoga-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="150" cy="165" rx="24" ry="32" fill="#2a4a1f" opacity=".55"/>
+      <circle cx="150" cy="112" r="24" fill="#2a4a1f" opacity=".65"/>
+      <path d="M126 152 Q88 135 62 162" stroke="#2a4a1f" stroke-width="13" fill="none" stroke-linecap="round" opacity=".45"/>
+      <path d="M174 152 Q212 135 238 162" stroke="#2a4a1f" stroke-width="13" fill="none" stroke-linecap="round" opacity=".45"/>
+      <path d="M136 193 Q115 212 126 238 Q138 252 150 246" stroke="#2a4a1f" stroke-width="11" fill="none" stroke-linecap="round" opacity=".38"/>
+      <path d="M164 193 Q185 212 174 238 Q162 252 150 246" stroke="#2a4a1f" stroke-width="11" fill="none" stroke-linecap="round" opacity=".38"/>
+      <ellipse cx="150" cy="165" rx="70" ry="80" fill="#2a4a1f" opacity=".04"/>
+    </svg>
+    <!-- ✏️ The little floating badge on the right side of hero -->
+    <div class="badge">
+      <div class="bdot"></div>
+      <div>
+        <strong>Sessions Open</strong>
+        <span>Online & Corporate · Pune</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+  ABOUT SECTION
+============================================================ -->
+<section id="about">
+  <div class="about-l rv">
+
+    <!-- ✏️ Small eyebrow label -->
+    <p class="seb">Who We Are</p>
+
+    <!-- ✏️ Section heading — use <em> for italic green text -->
+    <h2>Rooted in practice,<br><em>driven by purpose</em></h2>
+
+    <!-- ✏️ Paragraphs — add or remove <p>...</p> blocks as needed -->
+    <p>Yujasva is a collective of 7 passionate yoga instructors and co-founders based in Pune, dedicated to making yoga meaningful, accessible, and impactful — for individuals, corporate teams, and communities alike.</p>
+    <p>We conduct live online batches, corporate wellness sessions, and community events. Our work goes beyond asanas — we talk about health, awareness, and the importance of staying active in everyday life.</p>
+
+    <!-- ✏️ Button text -->
+    <a href="#contact" class="btn-p">Get in Touch</a>
+  </div>
+
+  <!-- ✏️ THE MISSION CARD on the right -->
+  <div class="mission rv">
+    <p class="mlabel">Our Mission</p>
+    <h3>Creating spaces to pause, breathe & reset</h3>
+    <p>From school grounds in Pune to corporate boardrooms, we bring yoga where it's needed most — with warmth, expertise, and genuine care for every participant's wellbeing.</p>
+
+    <!-- ✏️ CHECKLIST ITEMS — add <li>New item</li> or delete a line to remove -->
+    <ul class="chk">
+      <li>Live online batches across India</li>
+      <li>On-site corporate wellness programs</li>
+      <li>Community events & workshops</li>
+      <li>Women's health specialisation</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ============================================================
+  TEAM SECTION
+  ✏️ HOW TO ADD A PHOTO: Replace the photo src below with the path to
+     an image in your project, and update the alt text with the person's name.
+
+  ✏️ HOW TO ADD A NEW TEAM MEMBER: Copy one full <div class="tc">...</div>
+     block and paste it after the last one. Change the name, role, description.
+
+  ✏️ HOW TO REMOVE A TEAM MEMBER: Delete their full <div class="tc">...</div> block.
+============================================================ -->
+<section id="team">
+  <p class="seb" style="justify-content:center">Meet the Team</p>
+
+  <!-- ✏️ Section heading -->
+  <h2>The people behind <em>Yujasva</em></h2>
+
+  <!-- ✏️ Subtitle under the heading -->
+  <p class="sub">Seven co-founders, one shared vision — to make wellness accessible, meaningful, and joyful for every individual and organisation we work with.</p>
+
+  <div class="team-grid">
+
+    <!-- ── TEAM MEMBER 1 ── -->
+    <div class="tc" style="transition-delay:.05s">
+      <div class="tc-photo">
+        <img src="assets/team/shalini-soman.png" alt="Shalini Soman" loading="lazy"/>
+      </div>
+      <p class="tc-name">Shalini Soman</p>
+      <p class="tc-role">COO</p>
+      <p class="tc-desc">Leads operations and strategic direction, ensuring every Yujasva session runs seamlessly.</p>
+    </div>
+
+    <!-- ── TEAM MEMBER 2 ── -->
+    <div class="tc" style="transition-delay:.1s">
+      <div class="tc-photo">
+        <img src="assets/team/anika-pethe.png" alt="Anika Pethe" loading="lazy"/>
+      </div>
+      <p class="tc-name">Anika Pethe</p>
+      <p class="tc-role">CFO</p>
+      <p class="tc-desc">Manages the financial health of Yujasva, keeping our programmes sustainable and impactful.</p>
+    </div>
+
+    <!-- ── TEAM MEMBER 3 ── -->
+    <div class="tc" style="transition-delay:.15s">
+      <div class="tc-photo">
+        <img src="assets/team/priti-abhyankar.png" alt="Priti Abhyankar" loading="lazy"/>
+      </div>
+      <p class="tc-name">Priti Abhyankar</p>
+      <p class="tc-role">Social Media Manager</p>
+      <p class="tc-desc">Shares Yujasva's story with the world through authentic, inspiring digital content.</p>
+    </div>
+
+    <!-- ── TEAM MEMBER 4 ── -->
+    <div class="tc" style="transition-delay:.2s">
+      <div class="tc-photo">
+        <img src="assets/team/riya-yadav.png" alt="Riya Yadav" loading="lazy"/>
+      </div>
+      <p class="tc-name">Riya Yadav</p>
+      <p class="tc-role">Social Media Manager</p>
+      <p class="tc-desc">Crafts engaging campaigns and grows Yujasva's community across digital platforms.</p>
+    </div>
+
+    <!-- ── TEAM MEMBER 5 ── -->
+    <div class="tc" style="transition-delay:.25s;grid-column:1">
+      <div class="tc-photo">
+        <img src="assets/team/rucha-kanitkar.png" alt="Rucha Kanitkar" loading="lazy"/>
+      </div>
+      <p class="tc-name">Rucha Kanitkar</p>
+      <p class="tc-role">People Engagement Manager</p>
+      <p class="tc-desc">Nurtures participant relationships and ensures every event fosters real connection.</p>
+    </div>
+
+    <!-- ── TEAM MEMBER 6 ── -->
+    <div class="tc" style="transition-delay:.3s">
+      <div class="tc-photo">
+        <img src="assets/team/arya-inamdar.png" alt="Arya Inamdar" loading="lazy"/>
+      </div>
+      <p class="tc-name">Arya Inamdar</p>
+      <p class="tc-role">Administration Officer</p>
+      <p class="tc-desc">Keeps Yujasva's logistics running smoothly, from scheduling to coordination.</p>
+    </div>
+
+    <!-- ── TEAM MEMBER 7 ── -->
+    <div class="tc" style="transition-delay:.35s">
+      <div class="tc-photo">
+        <img src="assets/team/chinu-kelkar.png" alt="Chinu Kelkar" loading="lazy"/>
+      </div>
+      <p class="tc-name">Chinu Kelkar</p>
+      <p class="tc-role">People Relationship Manager</p>
+      <p class="tc-desc">Builds lasting relationships with clients and collaborators, making Yujasva feel like family.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+  WHY YUJASVA SECTION
+  ✏️ Each "why-item" is one row. Copy/paste a block to add a new reason,
+     or delete a block to remove one. Keep the numbers (01, 02...) in order.
+============================================================ -->
+<section id="why">
+  <div class="rv">
+    <p class="seb">Why Yujasva</p>
+    <h2>Yoga done <em>with intention</em></h2>
+    <div>
+
+      <!-- ── REASON 1 ── -->
+      <div class="why-item">
+        <span class="wn">01</span>
+        <div>
+          <h4>A Team of 7 Co-founders</h4>
+          <p>Not a single instructor juggling everything — a dedicated team with diverse specialisations ensures quality at every session.</p>
+        </div>
+      </div>
+
+      <!-- ── REASON 2 ── -->
+      <div class="why-item">
+        <span class="wn">02</span>
+        <div>
+          <h4>Online & Offline Flexibility</h4>
+          <p>Whether your team is remote, hybrid, or in-office, we come to you — physically or virtually, anywhere in Pune and beyond.</p>
+        </div>
+      </div>
+
+      <!-- ── REASON 3 ── -->
+      <div class="why-item">
+        <span class="wn">03</span>
+        <div>
+          <h4>Community-Driven Events</h4>
+          <p>We've led sessions for 550+ students, digital detox workshops, and corporate health talks — real impact, not just exercise.</p>
+        </div>
+      </div>
+
+      <!-- ── REASON 4 ── -->
+      <div class="why-item">
+        <span class="wn">04</span>
+        <div>
+          <h4>Women's Health Focus</h4>
+          <p>Our sessions include menstrual health education, menopause awareness, and holistic wellbeing conversations.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ✏️ THE GREEN QUOTE CARD on the right -->
+  <div class="qcard rv">
+    <!-- ✏️ The italic quote inside the card -->
+    <blockquote>"We're committed to creating simple spaces to pause, breathe, and reset."</blockquote>
+
+    <!-- ✏️ Who the quote is from -->
+    <p class="qattr">Team Yujasva</p>
+
+    <!-- ✏️ Checklist items inside the card — add or remove <li> lines -->
+    <ul class="qchk">
+      <li>Sessions for all levels</li>
+      <li>Flexible scheduling</li>
+      <li>Corporate & community focus</li>
+      <li>Based in Pune · Available pan-India online</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ============================================================
+  SERVICES SECTION
+  ✏️ Each service card is one <div class="svc rv"> block.
+     Copy/paste a block to add a new service. Delete one to remove it.
+     Note: 4 cards looks best. If you add a 5th, the layout will adjust.
+============================================================ -->
+<section id="services">
+  <p class="seb" style="justify-content:center">What We Offer</p>
+  <h2>Practice that fits <em>your life</em></h2>
+  <p class="sub">Whether you're a corporate team looking to reduce burnout or an individual wanting to build a regular practice, we have a session for you.</p>
+  <div class="svc-grid">
+
+    <!-- ── SERVICE 1 ── -->
+    <div class="svc rv">
+      <div class="svc-icon">🌐</div>   <!-- ✏️ Change the emoji icon -->
+      <h3>Online Batches</h3>
+      <p>Live, interactive yoga sessions over video. Scheduled batches across multiple styles and skill levels — join from anywhere in India.</p>
+    </div>
+
+    <!-- ── SERVICE 2 ── -->
+    <div class="svc rv" style="transition-delay:.1s">
+      <div class="svc-icon">🏢</div>
+      <h3>Corporate Yoga</h3>
+      <p>Tailored wellness programs for your workplace. On-site or virtual, designed to reduce burnout, back pain, and improve team wellbeing.</p>
+    </div>
+
+    <!-- ── SERVICE 3 ── -->
+    <div class="svc rv" style="transition-delay:.2s">
+      <div class="svc-icon">🎉</div>
+      <h3>Events & Workshops</h3>
+      <p>Special themed sessions, wellness days, and community events — like our Digital Detox and Women's Health workshops.</p>
+    </div>
+
+    <!-- ── SERVICE 4 ── -->
+    <div class="svc rv" style="transition-delay:.3s">
+      <div class="svc-icon">🌿</div>
+      <h3>Hatha Yoga</h3>
+      <p>Foundational postures, breathwork, and mindfulness. Ideal for beginners and those seeking a grounding, steady practice.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+  EVENTS SECTION
+  ✏️ Each event card is one <div class="ev rv"> block.
+     To ADD an event: copy a full block and paste it, then update the details.
+     To REMOVE an event: delete the whole <div class="ev rv">...</div> block.
+
+  ✏️ EVENT IMAGES: Replace the src="https://images.unsplash.com/..." URL
+     with a direct link to your own photo. Upload your photo to imgbb.com
+     and paste the "Direct link" here.
+============================================================ -->
+<section id="events">
+  <p class="seb">Our Events</p>
+  <h2>Wellness <em>in action</em></h2>
+  <p class="sub">From school grounds to corporate boardrooms — here's where we've brought yoga to life.</p>
+  <div class="ev-grid">
+
+    <!-- ── EVENT 1 ── -->
+    <div class="ev rv">
+      <!-- ✏️ Replace src with your own photo URL, update alt text -->
+      <img class="ev-img" src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=700&h=420&fit=crop&crop=center" alt="Atenx Gym Post Run Yoga" loading="lazy"/>
+      <div class="ev-body">
+        <p class="ev-date">15 March 2026</p>       <!-- ✏️ Date -->
+        <h3>Post Run Yoga — Atenx Gym</h3>          <!-- ✏️ Event title -->
+        <p>A grounding yoga session led after a community run, helping athletes recover, breathe, and reset at NSP Performance Institute.</p>  <!-- ✏️ Description -->
+        <span class="ev-tag">Fitness & Recovery</span>  <!-- ✏️ Tag/label -->
+      </div>
+    </div>
+
+    <!-- ── EVENT 2 ── -->
+    <div class="ev rv" style="transition-delay:.1s">
+      <img class="ev-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&h=420&fit=crop&crop=center" alt="Brintons Women Employees" loading="lazy"/>
+      <div class="ev-body">
+        <p class="ev-date">7 March 2026</p>
+        <h3>Women's Health Session — Brintons Carpets Asia</h3>
+        <p>Led a lecture on menstrual health and menopause for women employees, sparking open conversations about back pain, stress, and yoga stretches for the workday.</p>
+        <span class="ev-tag">Corporate Wellness</span>
+      </div>
+    </div>
+
+    <!-- ── EVENT 3 ── -->
+    <div class="ev rv" style="transition-delay:.2s">
+      <img class="ev-img" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&h=420&fit=crop&crop=center" alt="Digital Detox" loading="lazy"/>
+      <div class="ev-body">
+        <p class="ev-date">8 February 2026</p>
+        <h3>The Digital Detox — Stretch, Breathe & Disconnect</h3>
+        <p>Over 30 participants slowed down with pranayama, eye yoga, and stretches. People consciously disconnected from devices and reconnected with each other.</p>
+        <span class="ev-tag">Rotaract Club · Pune</span>
+      </div>
+    </div>
+
+    <!-- ── EVENT 4 ── -->
+    <div class="ev rv">
+      <img class="ev-img" src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=700&h=420&fit=crop&crop=center" alt="Kathak Dancers Yoga" loading="lazy"/>
+      <div class="ev-body">
+        <p class="ev-date">22 March 2026</p>
+        <h3>Yoga for Kathak Dancers — Tanz Kathak Academy</h3>
+        <p>A specialised yoga session tailored for classical dancers, focusing on flexibility, breath, and body awareness to complement their art form.</p>
+        <span class="ev-tag">Arts & Movement</span>
+      </div>
+    </div>
+
+    <!-- ── EVENT 5 ── -->
+    <div class="ev rv" style="transition-delay:.1s">
+      <img class="ev-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=700&h=420&fit=crop&crop=center" alt="PLD Offline Session" loading="lazy"/>
+      <div class="ev-body">
+        <p class="ev-date">9 November 2025</p>
+        <h3>PLD Offline Session — Garden Yoga</h3>
+        <p>A beautiful outdoor session held in a lush Pune garden, bringing together participants of all ages for pranayama, asanas, and morning meditation.</p>
+        <span class="ev-tag">Community Event</span>
+      </div>
+    </div>
+
+    <!-- ── EVENT 6 ── -->
+    <div class="ev rv" style="transition-delay:.2s">
+      <img class="ev-img" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&h=420&fit=crop&crop=center" alt="Renuka Swaroop School" loading="lazy"/>
+      <div class="ev-body">
+        <p class="ev-date">7 March 2026 · International Women's Day</p>
+        <h3>Yoga & Menstrual Health — Renuka Swaroop Girls School</h3>
+        <p>Over 550 students, faculty, and Rotarians came together on the school grounds for a session on menstrual health and a guided outdoor yoga practice.</p>
+        <span class="ev-tag">Rotary Club · Pune</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+  CONTACT SECTION
+  ✏️ Update your contact details below
+============================================================ -->
+<section id="contact">
+  <div class="con-l rv">
+    <p class="seb">Get in Touch</p>
+    <h2>Ready to bring <em>wellness</em> to your team?</h2>
+    <p>Whether you're looking for a corporate wellness program or want to join our online batches, we'd love to hear from you. We typically respond within 24 hours.</p>
+    <div class="con-info">
+      <!-- ✏️ Your email address -->
+      <div class="con-item"><span class="cdot"></span><a href="mailto:yujasvayoga@gmail.com">yujasvayoga@gmail.com</a></div>
+      <!-- ✏️ Your phone number and contact name -->
+      <div class="con-item"><span class="cdot"></span><span>Priti Abhyankar · +91 72640 70637</span></div>
+      <!-- ✏️ Your Instagram handle — update both the href and the display text -->
+      <div class="con-item"><span class="cdot"></span><a href="https://instagram.com/yujasva.yoga" target="_blank">@yujasva.yoga on Instagram</a></div>
+      <!-- ✏️ Your location -->
+      <div class="con-item"><span class="cdot"></span><span>Pune, Maharashtra · Online across India</span></div>
+    </div>
+  </div>
+
+  <div class="rv">
+    <!-- ============================================================
+      CONTACT FORM
+      ✏️ IMPORTANT: Replace YOUR_FORM_ID with your Formspree ID.
+         1. Go to formspree.io and sign up for free
+         2. Create a new form — it gives you an ID like "xpzvwqab"
+         3. Replace YOUR_FORM_ID below with that ID
+         Without this, the form button won't actually send emails.
+    ============================================================ -->
+    <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="form-grid">
+      <div class="fg">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="e.g. Priya Sharma" required/>
+      </div>
+      <div class="fg">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="priya@company.com" required/>
+      </div>
+      <div class="fg">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210"/>
+      </div>
+      <div class="fg">
+        <label for="org">Organisation</label>
+        <input type="text" id="org" name="organisation" placeholder="Your company name"/>
+      </div>
+      <div class="fg full">
+        <label for="service">I'm Interested In</label>
+        <!-- ✏️ Add or remove <option> lines to change the dropdown choices -->
+        <select id="service" name="service">
+          <option value="">Select a service...</option>
+          <option>Online Batches</option>
+          <option>Corporate Yoga Program</option>
+          <option>Community Event / Workshop</option>
+          <option>Women's Health Session</option>
+          <option>Hatha Yoga Classes</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fg full">
+        <label for="msg">Tell Us More</label>
+        <textarea id="msg" name="message" placeholder="Team size, preferred days/times, goals..."></textarea>
+      </div>
+      <div class="form-success" id="formSuccess">✓ Thank you! We'll be in touch within 24 hours.</div>
+      <!-- ✏️ Change the button text -->
+      <button type="submit" class="sub-btn">Send Enquiry →</button>
+    </form>
+  </div>
+</section>
+
+
+<!-- ============================================================
+  FOOTER
+  ✏️ Change the copyright text or logo name below
+============================================================ -->
+<footer>
+  <span class="f-logo">Yujasva</span>
+  <!-- ✏️ Update the copyright year or text -->
+  <span style="color:rgba(255,255,255,.5);font-size:.78rem">© 2026 Yujasva. Corporate & Online Yoga · Pune</span>
+  <div class="f-links">
+    <!-- ✏️ Footer links — match these to your section names -->
+    <a href="#about">About</a>
+    <a href="#team">Team</a>
+    <a href="#events">Events</a>
+    <a href="mailto:yujasvayoga@gmail.com">Contact</a>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+  JAVASCRIPT — do not edit this section unless you know what you're doing!
+============================================================ -->
+<script>
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+});
+
+const heroR = document.getElementById('heroR');
+setTimeout(() => heroR.classList.add('revealed'), 100);
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('vis');
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.rv, .tc').forEach(el => obs.observe(el));
+
+setTimeout(() => {
+  document.querySelector('.hero-l').classList.add('vis');
+}, 200);
+
+const form = document.getElementById('contactForm');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = form.querySelector('.sub-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.reset();
+      document.getElementById('formSuccess').style.display = 'block';
+      btn.textContent = 'Sent ✓';
+    } else {
+      btn.textContent = 'Error — try again';
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = 'Error — try again';
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
