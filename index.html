@@ -622,7 +622,8 @@ footer a:hover{color:var(--white)}
          3. Replace YOUR_FORM_ID below with that ID
          Without this, the form button won't actually send emails.
     ============================================================ -->
-    <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="form-grid">
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="form-grid">
+      <input type="hidden" name="access_key" value="584c67ec-35dd-4299-81ab-c9391c9be5d4">
       <div class="fg">
         <label for="name">Your Name</label>
         <input type="text" id="name" name="name" placeholder="e.g. Priya Sharma" required/>
