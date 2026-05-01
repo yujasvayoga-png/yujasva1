@@ -91,19 +91,23 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07)}
 #team{padding:6rem 4rem;text-align:center}
 #team h2{font-size:2.7rem;font-weight:400;margin-bottom:.65rem}
 #team>p.sub{color:var(--txt-l);max-width:540px;margin:0 auto 3.5rem;line-height:1.7;font-size:.92rem}
-.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:1100px;margin:0 auto;text-align:left}
+.team-grid-top{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:1100px;margin:0 auto 2rem auto;text-align:left}
+.team-grid-bottom{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:825px;margin:0 auto;text-align:left}
 .tc{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .tc.vis{opacity:1;transform:translateY(0)}
 .tc-photo{width:100%;aspect-ratio:3/4;border-radius:6px;margin-bottom:1rem;overflow:hidden;background:var(--green-l);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--green);position:relative}
-.tc-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.tc-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.4s ease}
+.tc-photo:hover img{transform:scale(1.05)}
+.tc-photo{overflow:hidden;border-radius:6px}
 .tc-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;margin-bottom:.2rem}
 .tc-role{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-l);margin-bottom:.45rem}
 .tc-desc{font-size:.82rem;line-height:1.6;color:var(--txt-l)}
 @media (max-width:900px){
-  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid-top{grid-template-columns:repeat(2,1fr)}
+  .team-grid-bottom{grid-template-columns:repeat(2,1fr);max-width:560px}
 }
 @media (max-width:560px){
-  .team-grid{grid-template-columns:1fr;max-width:320px}
+  .team-grid-top,.team-grid-bottom{grid-template-columns:1fr;max-width:320px}
 }
 
 /* WHY */
@@ -308,7 +312,7 @@ footer a:hover{color:var(--white)}
   <!-- ✏️ Subtitle under the heading -->
   <p class="sub">Seven co-founders, one shared vision — to make wellness accessible, meaningful, and joyful for every individual and organisation we work with.</p>
 
-  <div class="team-grid">
+  <div class="team-grid-top">
 
     <!-- ── TEAM MEMBER 1 ── -->
     <div class="tc" style="transition-delay:.05s">
@@ -350,8 +354,10 @@ footer a:hover{color:var(--white)}
       <p class="tc-desc">Crafts engaging campaigns and grows Yujasva's community across digital platforms.</p>
     </div>
 
-    <!-- ── TEAM MEMBER 5 ── -->
-    <div class="tc" style="transition-delay:.25s;grid-column:1">
+    </div>
+<div class="team-grid-bottom">
+<!-- — TEAM MEMBER 5 — -->
+    <div class="tc" style="transition-delay:.25s">
       <div class="tc-photo">
         <img src="assets/team/rucha-kanitkar.png" alt="Rucha Kanitkar" loading="lazy"/>
       </div>
