@@ -75,7 +75,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07)}
 .rv.vis{opacity:1;transform:translateY(0)}
 
 /* ABOUT */
-#about{background:var(--cream-d);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;padding:6rem 4rem}
+#about{background:var(--cream-d);display:grid;grid-template-columns:1.8fr 1.2fr;gap:2rem;align-items:center;padding:5rem 3rem}
 .about-l h2{font-size:2.7rem;line-height:1.25;font-weight:400;margin-bottom:1.4rem}
 .about-l p{font-size:.92rem;line-height:1.8;color:var(--txt-l);margin-bottom:1rem}
 .about-l a{margin-top:1.5rem;display:inline-block}
@@ -83,12 +83,10 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07)}
 .cl-item{overflow:hidden;border-radius:6px}
 .cl-item img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.4s ease}
 .cl-item:hover img{transform:scale(1.04)}
-.cl-a1{grid-column:1;grid-row:1/3;height:240px}
-.cl-a3{grid-column:2;grid-row:1;height:115px}
-.cl-a4{grid-column:2;grid-row:2;height:115px}
-.cl-a7{grid-column:1;grid-row:3;height:160px}
-.cl-a5{grid-column:2;grid-row:3;height:160px}
-.cl-a2{grid-column:1/3;grid-row:4;height:130px}
+.cl-a1{grid-column:1;grid-row:1/3;height:260px}
+.cl-a3{grid-column:2;grid-row:1;height:125px}
+.cl-a4{grid-column:2;grid-row:2;height:125px}
+.cl-a2{grid-column:1/3;grid-row:3;height:140px}
 .about-pills{list-style:none;padding:0;margin:1.5rem 0 2rem;display:flex;flex-wrap:wrap;gap:8px}
 .about-pills li{background:var(--green-l);color:var(--green-d);font-size:.8rem;padding:6px 14px;border-radius:20px;font-weight:500}
 
@@ -265,49 +263,38 @@ footer a:hover{color:var(--white)}
   ABOUT SECTION
 ============================================================ -->
 <section id="about">
-  <div class="about-l rv">
 
-    <!-- ✏️ Small eyebrow label -->
-    <p class="seb">Who We Are</p>
+  <!-- COLLAGE — now on the LEFT -->
+  <div class="collage">
+    <div class="cl-item cl-a1">
+      <img src="assets/yoga/A1.jpeg" alt="Yoga pose" loading="lazy"/>
+    </div>
+    <div class="cl-item cl-a3">
+      <img src="assets/yoga/A3.jpeg" alt="Yoga pose" loading="lazy"/>
+    </div>
+    <div class="cl-item cl-a4">
+      <img src="assets/yoga/A4.jpeg" alt="Yoga pose" loading="lazy"/>
+    </div>
+    <div class="cl-item cl-a2">
+      <img src="assets/yoga/A2.jpeg" alt="Yoga pose" loading="lazy"/>
+    </div>
+  </div>
 
-    <!-- ✏️ Section heading — use <em> for italic green text -->
-    <h2>Rooted in practice,<br><em>driven by purpose</em></h2>
-
-    <!-- ✏️ Paragraphs — add or remove <p>...</p> blocks as needed -->
-    <p>Yujasva is a collective of 7 passionate yoga instructors and co-founders based in Pune, dedicated to making yoga meaningful, accessible, and impactful: for individuals, corporate teams, and communities alike.</p>
-    <p>We conduct live online batches, corporate wellness sessions, and community events. Our work goes beyond asanas, we talk about health, awareness, and the importance of staying active in everyday life.</p>
-
-    <!-- ✏️ Button text -->
+  <!-- TEXT — now on the RIGHT -->
+  <div class="about-l">
+    <p class="seb">WHO WE ARE</p>
+    <h2>Rooted in practice, <em>driven by purpose</em></h2>
+    <p>A collective of passionate yoga instructors dedicated to making yoga meaningful, accessible, and impactful — for individuals, corporate teams, and communities alike.</p>
+    <p>We go beyond asanas — talking about health, awareness, and the importance of staying active in everyday life.</p>
     <ul class="about-pills">
-  <li>✓ Live online batches across India</li>
-  <li>✓ On-site corporate wellness programs</li>
-  <li>✓ Community events &amp; workshops</li>
-  <li>✓ Women's health specialisation</li>
-</ul>
+      <li>✓ Live online batches across India</li>
+      <li>✓ On-site corporate wellness programs</li>
+      <li>✓ Community events &amp; workshops</li>
+      <li>✓ Women's health specialisation</li>
+    </ul>
     <a href="#contact" class="btn-p">Get in Touch</a>
   </div>
 
-  <!-- ✏️ THE MISSION CARD on the right -->
-  <div class="collage">
-  <div class="cl-item cl-a1">
-    <img src="assets/yoga/A1.jpeg" alt="Yoga pose" loading="lazy"/>
-  </div>
-  <div class="cl-item cl-a3">
-    <img src="assets/yoga/A3.jpeg" alt="Yoga pose" loading="lazy"/>
-  </div>
-  <div class="cl-item cl-a4">
-    <img src="assets/yoga/A4.jpeg" alt="Yoga pose" loading="lazy"/>
-  </div>
-  <div class="cl-item cl-a7">
-    <img src="assets/yoga/A7.jpeg" alt="Yoga pose" loading="lazy"/>
-  </div>
-  <div class="cl-item cl-a5">
-    <img src="assets/yoga/A5.jpeg" alt="Yoga pose" loading="lazy"/>
-  </div>
-  <div class="cl-item cl-a2">
-    <img src="assets/yoga/A2.jpeg" alt="Yoga pose" loading="lazy"/>
-  </div>
-</div>
 </section>
 
 
